@@ -1,0 +1,29 @@
+div#sequenza-task {
+    
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #fafafa;
+    width: 220px;
+    height: 250px;
+    z-index: 10;
+}
+
+
+div#sequenza-task-elenco {
+    
+    height: 90%;
+    width: 100%;
+    overflow-y: auto;
+    background: #f0f0f0;
+}
+
+table#elenco-task td i:hover {
+    
+    cursor: pointer;
+}
+
+table#elenco-task td i {
+    
+   float: left;
+}

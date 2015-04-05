@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="extension2" nsURI="http://www.flyaq.it/extension2" nsPrefix="extension2">
+  <eClassifiers xsi:type="ecore:EClass" name="RoadTask" eSuperTypes="../../it.univaq.flyaq.mission/model/mission.ecore#//LineTask">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>

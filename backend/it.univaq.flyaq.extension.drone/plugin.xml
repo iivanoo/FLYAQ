@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="it.univaq.flyaq.extension.drone" name="DroneExtension" schema="schema/it.univaq.flyaq.extension.drone.exsd"/>
+
+</plugin>

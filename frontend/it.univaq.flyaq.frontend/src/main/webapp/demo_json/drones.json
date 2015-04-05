@@ -1,0 +1,92 @@
+{
+    "drones": [
+        {
+            "eClass": "http://www.flyaq.it/drone#//Drone",
+            "name": "ParrotSample",
+            "minVoltage": 110,
+            "maxVoltage": 220,
+            "maxPowerConsumption": 500,
+            "gps": true,
+            "accelerometer": true,
+            "communicationRange": 600,
+            "dataRate": 8,
+            "radioFrequency": 55,
+            "size": {
+                "eClass": "http://www.flyaq.it/drone#//Size",
+                "width": 64,
+                "length": 96,
+                "height": 85,
+                "weight": 12,
+                "propellerSize": 8
+            },
+            "flightPerf": {
+                "eClass": "http://www.flyaq.it/drone#//FlightPerformance",
+                "launchType": "HTOL",
+                "minSpeed": 2,
+                "maxSpeed": 14,
+                "minAcceleration": 8,
+                "maxAcceleration": 2,
+                "maxAltitude": 100,
+                "maxTurnRate": 7,
+                "minTurnRate": 9,
+                "maxClimbRate": 12,
+                "maxDescendRate": 41,
+                "positionHold": 66,
+                "maxPayload": 8,
+                "maxFlightTime": 45,
+                "maxFlightTimeWithMaxPayload": 8,
+                "minOperatingTemperature": 12,
+                "maxOperatingTemperature": 36
+            },
+            "batteries": [
+                {
+                    "eClass": "http://www.flyaq.it/drone#//Battery",
+                    "name": "battery1",
+                    "cellType": "ion",
+                    "capacity": 45,
+                    "voltage": 200,
+                    "rechargeTime": 2
+                },
+                {
+                    "eClass": "http://www.flyaq.it/drone#//Battery",
+                    "name": "battery2",
+                    "cellType": "ion",
+                    "capacity": 22,
+                    "voltage": 100,
+                    "rechargeTime": 1
+                }
+            ],
+            "processors": [
+                {
+                    "eClass": "http://www.flyaq.it/drone#//Processor",
+                    "name": "core1",
+                    "architecture": "x86",
+                    "frequency": 223
+                },
+                {
+                    "eClass": "http://www.flyaq.it/drone#//Processor",
+                    "name": "core2",
+                    "architecture": "x86",
+                    "frequency": 223
+                }
+            ],
+            "memory": [
+                {
+                    "eClass": "http://www.flyaq.it/drone#//Memory",
+                    "name": "ram",
+                    "type": "STORAGE",
+                    "subType": "",
+                    "size": 512
+                },
+                {
+                    "eClass": "http://www.flyaq.it/drone#//Memory",
+                    "name": "sd",
+                    "type": "STORAGE",
+                    "subType": "",
+                    "size": 1024
+                }
+            ],
+            "icon": "http://localhost:8080/api/resources/Drone-icon.png"
+        }
+    ]
+}

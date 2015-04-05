@@ -1,0 +1,147 @@
+{
+  "@ns" : {
+    "mission" : "http://www.flyaq.it/mission",
+    "extension1" : "http://www.flyaq.it/extension1",
+    "extension2" : "http://www.flyaq.it/extension2"
+  },
+  "eClass" : "mission://Mission",
+  "name" : "mission1",
+  "crs" : "wgs84",
+  "tasks" : [ {
+    "eClass" : "extension2://RoadTask",
+    "name" : "roadTask1",
+    "inverted" : true,
+    "points" : [ {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.1,
+      "longitude" : 12.4,
+      "altitude" : 24.0
+    }, {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.2,
+      "longitude" : 12.3,
+      "altitude" : 23.0
+    }, {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.3,
+      "longitude" : 12.2,
+      "altitude" : 25.0
+    }, {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.4,
+      "longitude" : 21.0,
+      "altitude" : 12.1
+    } ],
+    "initialPosition" : {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.1,
+      "longitude" : 12.4,
+      "altitude" : 24.0
+    }
+  }, {
+    "eClass" : "extension1://PhotoGridTask",
+    "name" : "photoGridTask1",
+    "gridResolution" : 12.0,
+    "altitude" : 78.0,
+    "shell" : [ {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.1,
+      "longitude" : 12.4,
+      "altitude" : 24.0
+    }, {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.2,
+      "longitude" : 12.3,
+      "altitude" : 23.0
+    }, {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.3,
+      "longitude" : 12.2,
+      "altitude" : 25.0
+    }, {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.4,
+      "longitude" : 21.0,
+      "altitude" : 12.1
+    } ],
+    "initialPosition" : {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 45.1,
+      "longitude" : 12.4,
+      "altitude" : 24.0
+    }
+  }, {
+    "eClass" : "extension1://GoToTask",
+    "name" : "goToTask1",
+    "type" : "QUICK",
+    "point" : {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 25.4,
+      "longitude" : 18.3,
+      "altitude" : 6.0
+    }
+  }, {
+    "eClass" : "mission://Fork",
+    "name" : "fork1",
+    "referencePosition" : {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 11.0,
+      "longitude" : 22.0,
+      "altitude" : 3.0
+    }
+  }, {
+    "eClass" : "mission://Join",
+    "name" : "join1",
+    "referencePosition" : {
+      "eClass" : "mission://Coordinate",
+      "latitude" : 11.0,
+      "longitude" : 22.0,
+      "altitude" : 3.0
+    }
+  } ],
+  "taskDependencies" : [ {
+    "eClass" : "mission://TaskDependency",
+    "name" : "taskDependency1",
+    "from" : {
+      "$ref" : "//@tasks.0",
+      "eClass" : "extension2://RoadTask"
+    },
+    "to" : {
+      "$ref" : "//@tasks.2",
+      "eClass" : "extension1://GoToTask"
+    }
+  }, {
+    "eClass" : "mission://TaskDependency",
+    "name" : "taskDependency2",
+    "from" : {
+      "$ref" : "//@tasks.2",
+      "eClass" : "extension1://GoToTask"
+    },
+    "to" : {
+      "$ref" : "//@tasks.1",
+      "eClass" : "extension1://PhotoGridTask"
+    }
+  } ],
+  "swarm" : {
+    "eClass" : "mission://Swarm",
+    "drones" : [ {
+      "eClass" : "mission://Drone",
+      "type" : "drone1",
+      "home" : {
+        "eClass" : "mission://Coordinate",
+        "latitude" : 12.1,
+        "longitude" : 32.3,
+        "altitude" : 11.0
+      }
+    }, {
+      "eClass" : "mission://Drone",
+      "type" : "drone2",
+      "home" : {
+        "eClass" : "mission://Coordinate",
+        "latitude" : 12.1,
+        "longitude" : 32.3,
+        "altitude" : 11.0
+      }
+    } ]
+  }
+}

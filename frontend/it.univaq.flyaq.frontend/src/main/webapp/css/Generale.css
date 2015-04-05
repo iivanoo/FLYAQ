@@ -1,0 +1,110 @@
+/*** Body *****/
+
+body {
+    
+    cursor: default;
+    overflow: hidden;
+}
+
+
+/**** Finestre ****/
+
+div.casella {
+    
+    background: #fafafa;
+    border: 1px solid silver;
+    box-shadow: 2px 2px 7px black;
+}
+
+
+/**** Utilit� ****/
+
+.closeIcona {
+    
+    float: right;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.checkbox-tabella {
+    
+    margin-top:-3px !important;
+}
+
+.destra {
+    
+    float: right;
+}
+
+.bottone-menu:hover ul {
+    
+    display: block;
+}
+
+.menu1 {
+    
+    left: auto;
+    top: 90%;
+}
+
+.dropdown-header {
+    
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+}
+
+.nascondi {
+    
+    visibility: hidden;
+}
+
+.mouse {
+    
+    cursor: pointer;
+}
+
+.titolo {
+    
+    font-size: 15px;
+}
+
+.no-margine {
+    
+    margin: 0px !important; 
+}
+
+.no-padding {
+    
+    padding: 0px !important;
+}
+
+.leaflet-editing-icon.marker-snapped {
+    background-color: yellow;
+}
+
+.leaflet-marker-icon.marker-snapped {
+    content: url('../icone/home-256.png');
+/*     height: 35px !important; */
+/*     width: 35px !important; */
+/*     top: 5px; */
+}
+
+
+.popupParametro {
+    max-width: 70px;
+    font-size: 12px;
+    padding: 0px !important;
+    padding-left: 5px !important;
+    margin: 1px !important;
+}
+
+.popupSelect {
+    max-width: 110px;
+}
+
+.iconaDrone {
+    height: 25px !important;
+    width: 25px !important;
+    max-width: initial;
+}

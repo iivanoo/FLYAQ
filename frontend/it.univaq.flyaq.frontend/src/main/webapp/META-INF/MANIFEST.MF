@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ClassPath: .,WEB-INF/classes
+Bundle-Version: 1.0.0
+Tool: Bundlor 1.1.2.RELEASE
+Bundle-Name: Flyaq Frontend
+Bundle-ManifestVersion: 2
+Import-Package: javax.servlet;version="[2.6.0,2.6.0]",javax.servlet.ht
+ tp;version="[2.6.0,2.6.0]",org.slf4j;version="[1.7.2,1.7.3)"
+Bundle-SymbolicName: it.univaq.flyaq.frontend
+Web-ContextPath: /
+

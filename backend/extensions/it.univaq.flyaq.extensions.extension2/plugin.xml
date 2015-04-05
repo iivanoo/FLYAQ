@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="it.univaq.flyaq.extension.mission">
+      <missionExtension
+            metamodel="model/extension2.ecore">
+         <Task
+               color="F2C45A"
+               icon="icon/roadtask.png"
+               name="RoadTask"
+               synthesizer="it.univaq.flyaq.extensions.extension2.synthesizer.RoadTaskSynthesizer"
+               type="LineTask">
+            <PrimitiveTaskProperty
+                  lowerBound="1"
+                  name="inverted"
+                  type="boolean"
+                  upperBound="1">
+            </PrimitiveTaskProperty>
+         </Task>
+      </missionExtension>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated extension2 -->
+      <package
+            uri="http://www.flyaq.it/extension2"
+            class="it.univaq.flyaq.extensions.extension2.Extension2Package"
+            genModel="model/extension2.genmodel"/>
+   </extension>
+
+</plugin>

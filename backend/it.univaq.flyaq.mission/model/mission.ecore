@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mission" nsURI="http://www.flyaq.it/mission" nsPrefix="mission">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mission" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="crs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="1" upperBound="-1"
+        eType="#//Task" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskDependencies" upperBound="-1"
+        eType="#//TaskDependency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="swarm" lowerBound="1" eType="#//Swarm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Swarm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drones" lowerBound="1"
+        upperBound="-1" eType="#//Drone" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Drone" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="home" lowerBound="1" eType="#//Coordinate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnHome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlTask" abstract="true" eSuperTypes="#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencePosition" eType="#//Coordinate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fork" eSuperTypes="#//ControlTask"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Join" eSuperTypes="#//ControlTask"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDependency" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Coordinate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longitude" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="altitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PolygonTask" abstract="true" eSuperTypes="#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shell" lowerBound="3" upperBound="-1"
+        eType="#//Coordinate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialPosition" lowerBound="1"
+        eType="#//Coordinate" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PointTask" abstract="true" eSuperTypes="#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="1" eType="#//Coordinate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineTask" abstract="true" eSuperTypes="#//Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="points" lowerBound="1"
+        upperBound="-1" eType="#//Coordinate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initialPosition" lowerBound="1"
+        eType="#//Coordinate" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

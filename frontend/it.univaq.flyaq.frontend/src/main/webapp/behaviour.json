@@ -1,0 +1,158 @@
+{
+  "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Behaviour",
+  "name" : "behaviourExample",
+  "crs" : "wgs84",
+  "drones" : [ {
+    "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Drone",
+    "name" : "Parrot1",
+    "typeName" : "Parrot",
+    "travelMode" : "NORMAL",
+    "home" : {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Coordinate",
+      "latitude" : 42.36928,
+      "longitude" : 13.349674
+    },
+    "movements" : [ {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Start",
+      "name" : "start1"
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff",
+      "name" : "takeOff1",
+      "altitude" : 5.0
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover",
+      "name" : "hover1",
+      "duration" : 5.0
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo",
+      "name" : "goTo1",
+      "strategy" : "VERTICAL_FIRST",
+      "targetPosition" : {
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Coordinate",
+        "latitude" : 42.369465,
+        "longitude" : 13.349313,
+        "altitude" : 5.0
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo",
+      "name" : "goTo2",
+      "strategy" : "VERTICAL_FIRST",
+      "targetPosition" : {
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Coordinate",
+        "latitude" : 42.369724,
+        "longitude" : 13.349337,
+        "altitude" : 5.0
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle",
+      "name" : "circle1",
+      "duration" : 20.0,
+      "radius" : 5.0,
+      "altitude" : 10.0,
+      "clockwise" : true,
+      "targetPosition" : {
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Coordinate",
+        "latitude" : 42.369537,
+        "longitude" : 13.349751,
+        "altitude" : 10.0
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo",
+      "name" : "goTo3",
+      "strategy" : "HORIZONTAL_FIRST",
+      "targetPosition" : {
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Coordinate",
+        "latitude" : 42.36928,
+        "longitude" : 13.349674,
+        "altitude" : 2.0
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Land",
+      "name" : "land1"
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Stop",
+      "name" : "stop1"
+    } ],
+    "moveTransitions" : [ {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.0",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Start"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.1",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.1",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.2",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.2",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.3",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.3",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.4",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.4",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.5",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.5",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.6",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.6",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.7",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Land"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.7",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Land"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.8",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Stop"
+      }
+    } ]
+  } ]
+}

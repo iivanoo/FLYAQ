@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Import-Bundle: com.springsource.org.apache.taglibs.standard;version="[
+ 1.1.2,1.3)"
+Bundle-Classpath: .,WEB-INF/classes
+Bundle-Version: 1
+Tool: Bundlor 1.1.2.RELEASE
+Bundle-Name: REST Sample Web Bundle
+Bundle-ManifestVersion: 2
+Import-Package: javax.servlet.http;version="[2.1.0, 3.0.0)",org.eclips
+ e.virgo.web.dm;version="[3.0.0,4.0.0)",org.springframework.beans.fact
+ ory.xml;version="[3.0,4.0)",org.springframework.context.config;versio
+ n="[3.0,4.0)",org.springframework.context.support;version="[3.0,4.0)"
+ ,org.springframework.http;version="[3.0,4.0)",org.springframework.ste
+ reotype;version="[3.0,4.0)",org.springframework.web.bind.annotation;v
+ ersion="[3.0,4.0)",org.springframework.web.context;version="[3.0,4.0)
+ ",org.springframework.web.context.support;version="[3.0,4.0)",org.spr
+ ingframework.web.servlet;version="[3.0,4.0)",org.springframework.web.
+ servlet.config;version="[3.0,4.0)",org.springframework.web.servlet.ha
+ ndler;version="[3.0,4.0)",org.springframework.web.servlet.mvc;version
+ ="[3.0,4.0)",org.springframework.web.servlet.mvc.annotation;version="
+ [3.0,4.0)",org.springframework.web.servlet.support;version="[3.0,4.0)
+ ",org.springframework.web.servlet.view;version="[3.0,4.0)"
+Bundle-SymbolicName: org.eclipse.virgo.samples.rest
+Web-ContextPath: rest
+

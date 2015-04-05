@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FLYAQ - Mission Editor</title>
+    <!-- **** Librerie di terze parti **** -->
+    
+    <!-- Leaflet Base -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    
+    <!-- Plugin disegno Leaflet -->
+    <link rel="stylesheet" href="lib/leaflet/leaflet.draw.css" />
+    <script type="text/javascript" src="lib/leaflet/leaflet.draw.js"></script>
+    <script type="text/javascript" src="lib/leaflet/leaflet.snap.js"></script>
+    <script type="text/javascript" src="lib/leaflet/leaflet.geometryutil.js"></script>
+    
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" media="screen"/>
+    <script type="text-javascript" src="lib/bootstrap/js/bootstrap.js"> </script>
+    
+    <!-- Jquery -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"> </script>
+    <script type="text/javascript" src="lib/jquery/jquery.cookie.js"> </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"/>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+    
+</head>
+<body>
+    <!-- *********** Finestra di Login ************ -->
+    <div id="login-window-back">
+        <div id="login-window" class="well-small casella">
+            <h4 class="titolo text-info"><strong>Login</strong></h4>
+            <div id="login_form">
+            <input type="text" placeholder="Username" id="loginUser"/>
+            <input type="password" placeholder="Password" id="loginPass"/>
+            <button class="btn btn-info" onclick="serverLogin(document.getElementById('loginUser'), document.getElementById('loginPass'))">Login</button></div>
+        </div>
+    </div>
+    
+    <!-- ************* Finestra principale dell'Editor **************** -->
+    <div style="display: none;" id="all-the-stuff">
+        <!-- #### Barra menu Alto (larghezza <= 900px) -->
+        <div id="barra-menu-LPD">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li><a href="http://www.flyaq.it/" title="Visit our website" class="no-margine no-padding"><img id="logo-sito" src="img/logo.png" alt="logo sito"/></a></li>  
+                            <li class="divider-vertical"></li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown" onclick="flipMenuPrincipale()">
+                                    Main menu
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="menu-princ-dropdown">
+                                    <li role="presentation" class="dropdown-header">Mission name</li>
+                                    <li><input class="navbar-text textBarra" id="mission-name-LPD" value="mission1" placeholder="Type here..." title="Click to change" onblur="updateMissionName(this, 'mission-name')"/></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation" class="dropdown-header">Actions</li>
+                                    <li role="presentation"><a id="menu-submit-mission-LPD" role="menuitem" tabindex="-1" href="#" onclick="submitMission();flipMenuPrincipale()">Create Mission</a></li>
+                                    <li role="presentation" class="disabled"><a id="menu-start-mission-LPD" role="menuitem" tabindex="-1" href="#" onclick="startMissionLPD();flipMenuPrincipale()">Start Mission</a></li>
+                                    <li role="presentation" class="disabled"><a id="menu-stop-mission-LPD" role="menuitem" tabindex="-1" href="#" onclick="stopMissionLPD();flipMenuPrincipale()">Stop Mission</a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation" class="dropdown-header">User info</li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><span id="username-LPD"></span></a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation"><a id="menu-exit-editor-LPD" role="menuitem" tabindex="-1" href="#" onclick="serverLogout(flyaq.whoami);">Exit</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>        
+        <!-- #### Barra menu Alto (larghezza > 900px) -->
+        <div id="barra-menu">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                      <li><a href="http://www.flyaq.it/" title="Visit our website" class="no-margine no-padding"><img id="logo-sito" src="img/logo.png" alt="logo sito"/></a></li>  
+                            <li class="divider-vertical"></li>
+                      <li hidden="hidden" class="bottone-menu"><a class="mouse">Options</a>
+                            <!-- menu opzioni -->
+                            <ul class="dropdown-menu menu1">
+                                <li><a class="mouse" onclick="nuovoProgetto();">New Project</a></li>
+                                <li><a class="mouse" onclick="salvaProgetto();">Save Project</a></li>
+                                <li><a class="mouse" onclick="apriProgetto();">Load Project</a></li>
+                                <li class="divider"></li>
+                                <li><a class="mouse" onclick="cancProgetto();">Delete saved Project</a></li>
+                            </ul>
+                      </li>
+                            <li class="divider-vertical"></li>
+                            
+                            <li><p class="navbar-text"><b>Mission name</b></p></li>
+                            <li><div class="navbar-form"><input class="navbar-text textBarra" id="mission-name" value="mission1" placeholder="Type here..." title="Click to change" onblur="updateMissionName(this, 'mission-name-LPD')"/></div></li>
+                            <li class="divider-vertical"></li>
+                            <div class="btn-group" style="/* fix per icone */ /*margin-top: 0px;*/">
+                                <!-- bottoni con icone
+                                <button id="menu-submit-mission" type="button" class="btn btn-default"><a href="#" class="no-margine no-padding" title="Click to submit your mission" onclick="submitMission();"><img class="fixIcona" src="img/ok.png" alt="genera codice" width="27" height="27"/></a></button>
+                                <button id="menu-start-mission" type="button" class="btn btn-default" disabled="disabled"><a href="#" class="no-margine no-padding" title="Click to start your mission" onclick="startMission();"><img class="fixIcona" src="icone/start.png" alt="avvia missione" width="27" height="27"/></a></button>
+                                <button id="menu-stop-mission" type="button" class="btn btn-default" disabled="disabled"><a href="#" class="no-margine no-padding" title="Click to stop your mission" onclick="stopMission();"><img class="fixIcona" src="icone/noVolo.png" alt="ferma missione" width="27" height="27"/></a></button>
+                                -->
+                                <!-- bottoni con etichette -->
+                                <button id="menu-submit-mission" type="button" class="btn btn-default"><a href="#"  title="Click to submit your mission" onclick="submitMission();">Create</a></button>
+                                <button id="menu-start-mission" type="button" class="btn btn-default" disabled="disabled"><a href="#"  title="Click to start your mission" onclick="startMission();">Start</a></button>
+                                <button id="menu-stop-mission" type="button" class="btn btn-default" disabled="disabled"><a href="#"  title="Click to stop your mission" onclick="stopMission();">Stop</a></button>                                
+                            </div>
+                            <button id="menu-live-data" type="button" class="btn btn-default" disabled="disabled"><a href="#"  title="Click to start/stop live data connection" onclick="comunica();clearDisabilitato();">Clear</a></button>
+                            
+                    </ul>
+                    
+                    <div id="navbar-destra" class="destra">
+                        <ul class="nav">
+                                <li class="divider-vertical"></li> 
+                          <li><img class="fixIcona" src="img/utente.png" alt="info utente" width="27" height="27"/></li>
+                          <li><a href="#" title="User information"><span id="username"></span></a></li>          
+                                <li class="divider-vertical"></li>
+                          <li><div class="navbar-form"><input id="live-ros-ip" class="navbar-text textBarra ipBarra" size="15" maxlength="15" title="Live ROS IP" value="127.0.0.1"/></div></li>          
+                          <li id="menu-exit-editor"><a href="#" title="Exit the editor" onclick="serverLogout(flyaq.whoami);"><i class="icon-off"></i>&nbspExit</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+        <!-- #### Bottoni visibilità elementi -->
+        <div id="menu-vista">
+                <button id="menu-vista-task" class="btn modifica-vista btn-info" onclick="flip_task(this);"><img src="icone/mission.png" alt="icona missione" width="25" /><span class="menu-vista-etichetta">Mission</span></button><br>
+                <button id="menu-vista-contesto" class="btn modifica-vista btn-info" onclick="flip_contesto(this);"><img src="icone/context.png" alt="icona contesto" width="27" height="27"/><span class="menu-vista-etichetta">Context</span></button><br>
+                <button id="menu-vista-behaviour" class="btn modifica-vista btn-info" onclick="flip_behaviour(this);" style="display:none;"><img src="icone/behaviour.png" alt="icona comportamento" width="27" height="27"/><span class="menu-vista-etichetta">Behaviour</span></button><br>
+        </div>
+        
+        <!-- #### Editor centrale aree su mappa -->
+        <div id="editor-centrale">
+            <div id="map"></div>
+        </div>
+        
+        <!-- #### Caselle strumenti laterali destre -->
+        <div id="caselle-strumenti">
+            <div id="caselle-strumenti-segnaposto">
+                <button class="btn" title="Show palette" onclick="flip_strumenti();"><i id="segnaposto-sx" class="icon-chevron-left"></i><i id="segnaposto-dx" class="icon-chevron-right"></i></button>
+            </div>
+            <div id="caselle-strumenti-coldx">
+                
+                <!-- Tasks -->
+                <div id="tasks" class="well-small casella">                    
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#"><strong>Tasks</strong></a></li>
+                        <li><a href="#" onclick="pannello_strumenti('contesto');"><strong>Context</strong></a></li>                        
+                    </ul>
+                    
+                    <div id="strumenti-elenco-task">
+                        <div id="strumenti-elenco-task-1">
+                            <table id="modelli-task" class="table">
+                                <tbody id="modelli-task-elenco">
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                </div>
+                
+                <!-- Contesto -->
+                <div id="contesto" class="well-small casella">                    
+                    <ul class="nav nav-tabs">
+                        <li><a href="#" onclick="pannello_strumenti('task');"><strong>Tasks</strong></a></li>
+                        <li class="active"><a href="#"><strong>Context</strong></a></li>                        
+                    </ul>
+                    
+                    <div id="strumenti-elenco-contesto">
+                        <div id="strumenti-elenco-contesto-1">
+                            <table id="modelli-contesto" class="table" >
+                                <tbody id="modelli-contesto-elenco">
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                </div>
+                <br>
+                
+                <!-- Droni -->    
+                <div id="droni" class="well-small casella">
+                    <fieldset>
+                        <legend class="titolo text-info"><strong>Drones</strong></legend>
+                    </fieldset>
+                    
+                    <div id="droni-modelli"><select id="elenco-modelli-droni"></select><button class="btn" onclick="flottaAggiungiDrone();"><i class="icon-plus"></i></button></div>
+                    <div id="droni-flotta">
+                        <table class="table table-condensed">
+                            <tbody id="droni-flotta-elenco">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- #### Sequenza task disegnati -->
+        <div id="sequenza-task" class="well-small casella" >
+            <div class="text-center text-info"> <strong>Task Sequence</strong></div>
+            <div id="sequenza-task-elenco">
+                <table id="elenco-task" class="table table-condensed table-hover">
+                    <tbody id="elenco-task-elenco">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- **** Codice proprietario **** -->
+    
+    <!-- Stili proprietari -->
+    <link type="text/css" rel="stylesheet" href="css/Login.css" />
+    
+    <link type="text/css" rel="stylesheet" href="css/Generale.css" />
+    <link type="text/css" rel="stylesheet" href="css/BarraMenu.css" />
+    <link type="text/css" rel="stylesheet" href="css/MenuVista.css" />
+    <link type="text/css" rel="stylesheet" href="css/EditorCentrale.css" />
+    <link type="text/css" rel="stylesheet" href="css/CaselleStrumenti.css" />
+    <link type="text/css" rel="stylesheet" href="css/SequenzaTask.css" />
+    
+    <!-- Script proprietari -->
+    <script type="text/javascript" src="js/Generale.js"></script>
+    <script type="text/javascript" src="js/CaselleStrum.js"></script>
+    <script type="text/javascript" src="js/Droni.js"></script>
+    <script type="text/javascript" src="js/Task.js"></script>
+    <script type="text/javascript" src="js/Context.js"></script>
+    <script type="text/javascript" src="js/Editing.js"></script>
+    <script type="text/javascript" src="js/Visual.js"></script> 
+    
+    <script type="text/javascript" src="js/HTML.js"></script>
+    
+    <script type="text/javascript" src="js/SubmitMission.js"></script>
+    
+    <!-- Behaviour scripts -->
+    
+    <script type="text/javascript" src="js/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="js/roslib.min.js"></script>    
+    <script type="text/javascript" src="js/Behaviour.js"></script>
+    
+    <!-- Script Ajax -->
+    <script type="text/javascript" src="js/stubServer.js"></script> 
+
+    <!-- Script ROS -->
+    <script type="text/javascript" src="js/ros.js"></script>   
+
+    <!-- #### Script di configurazione -->
+    <script type="text/javascript">
+    
+    
+    //@ Carica la mappa e tutto ciò che serve tramite LeafLetJs
+    function caricaMappa()
+    {        
+        // Riconoscimenti in basso a destra
+        var mapboxTiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        });
+        
+        // Caricamento mappa e geolocalizzazione
+        flyaq.map = L.map('map', {drawControl: true}).addLayer(mapboxTiles).setView([38, -102.0], 16);        
+        
+        flyaq.temp.timeoutVal = 10 * 1000 * 1000;        
+        navigator.geolocation.getCurrentPosition(centraMappa, null,
+                                                 { enableHighAccuracy: true, timeout: flyaq.temp.timeoutVal, maximumAge: 0 });
+        
+        // Nascondi i controlli disegno standard
+        document.getElementsByClassName("leaflet-draw leaflet-control")[0].style.display = "none";
+        
+        // Spostiamo i controlli di Zoom nella giusta posizione
+        zc = document.getElementsByClassName("leaflet-top leaflet-left");
+        zc[0].style.marginTop = "240px";
+        
+        // Evento => Salvataggio poligoni editati sulla mappa
+        flyaq.map.on('draw:created', function (e) {
+            editSave(e.layer);
+        });
+    }
+    
+    function centraMappa(position) {        
+        flyaq.map.panTo(L.latLng(position.coords.latitude, position.coords.longitude));
+    }
+    
+    //@ carica le Palette dati tramite file Json
+    function caricaJson()
+    {
+        // Palette Task
+        //$.getJSON("demo_json/mission.json", function(data){getTask(data);});
+        // Chiamata HTTP_get con controllo di errore
+        
+       $.getJSON(flyaq.baseURL + "/api/v1/mission")
+        .done(function(data){getTask(data);})
+        .fail(function( jqxhr, textStatus, error ){alert('Mission API Rest GET problem ' + error + ': ' + textStatus)});
+        
+        
+        /*
+          missionList.json è il file con i modelli dei task. Se devono essere caricati
+          da una risorsa remota, sostiuire con la seguente richiesta
+        */  
+        //$.getJSON(flyaq.baseURL + "/mission", function(data){getTask(data);});        
+        
+        
+        // Palette Context
+        $.getJSON("demo_json/contextMM.json", function(data){getContesto(data);});
+        // Chiamata HTTP_get con controllo di errore
+        
+        /*$.getJSON("demo_json/contextMM.json")
+        .done(function(data){getContesto(data);})
+        .fail(function( jqxhr, textStatus, error ){alert('Errore ' + error + ': ' + textStatus)});
+        */
+        
+        /*
+          contextMM.json è il file con gli oggetti di contesto. Se devono essere caricati
+          da una risorsa remota, sostiuire con la seguente richiesta
+        */  
+        //$.getJSON("URL_risorsa_remota", function(data){getContesto(data);});
+        
+        
+        // Palette Droni
+        //$.getJSON("demo_json/drones.json", function(data){getDroni(data);});
+        // Chiamata HTTP_get con controllo di errore
+        
+        $.getJSON(flyaq.baseURL + "/api/v1/drones")
+        .done(function(data){getDroni(data);})
+        .fail(function( jqxhr, textStatus, error ){alert('Drones API Rest GET problem ' + error + ': ' + textStatus)});
+        
+        
+        /*
+          droni.json è il file con i modelli dei droni. Se devono essere caricati
+          da una risorsa remota, sostiuire con la seguente richiesta
+        */  
+        //$.getJSON(flyaq.baseURL + "/drones", function(data){getDroni(data);});
+        
+        // ID utente
+        // Chiamata HTTP_get con controllo di errore
+        
+        $.getJSON(flyaq.baseURL + "/api/v1/assign_id")
+        .done(function(data){flyaq.idutente = data.ID})
+        .fail(function( jqxhr, textStatus, error ){alert('User ID API Rest problem ' + error + ': ' + textStatus)});
+        
+    }
+    
+    // Esegue l'inizializzazione
+    function editorInit()
+    {
+        // chiedo l'ID per l'utente
+        // $.getJSON(baseURL + "/assign_id", function(data){setUserId(data)});
+        
+        caricaMappa();    
+        caricaJson();
+    }
+    
+    </script>
+    
+</body>
+</html>

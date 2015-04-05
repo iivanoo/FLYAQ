@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Parrot
+Bundle-SymbolicName: it.univaq.flyaq.extensions.parrot;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: it.univaq.flyaq.extensions.parrot.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.osgi.framework;version="1.7.0"
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: model/,
+ .
+Require-Bundle: it.univaq.flyaq.extension.drone;bundle-version="1.0.0"

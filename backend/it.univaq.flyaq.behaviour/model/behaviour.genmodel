@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/it.univaq.flyaq.behaviour/src" modelPluginID="it.univaq.flyaq.behaviour"
+    modelName="Behaviour" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" runtimePlatform="RAP" importOrganizing="true">
+  <foreignModel>behaviour.ecore</foreignModel>
+  <genPackages prefix="Behaviour" basePackage="it.univaq.flyaq" disposableProviderFactory="true"
+      ecorePackage="behaviour.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="behaviour.ecore#//GoToStrategy">
+      <genEnumLiterals ecoreEnumLiteral="behaviour.ecore#//GoToStrategy/DIRECT"/>
+      <genEnumLiterals ecoreEnumLiteral="behaviour.ecore#//GoToStrategy/HORIZONTAL_FIRST"/>
+      <genEnumLiterals ecoreEnumLiteral="behaviour.ecore#//GoToStrategy/VERTICAL_FIRST"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="behaviour.ecore#//TravelMode">
+      <genEnumLiterals ecoreEnumLiteral="behaviour.ecore#//TravelMode/SAFE"/>
+      <genEnumLiterals ecoreEnumLiteral="behaviour.ecore#//TravelMode/NORMAL"/>
+      <genEnumLiterals ecoreEnumLiteral="behaviour.ecore#//TravelMode/AGGRESSIVE"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="behaviour.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Behaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Behaviour/crs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Behaviour/drones"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Drone">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Drone/typeName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Drone/home"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Drone/movements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Drone/moveTransitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Drone/slots"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Drone/travelMode"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="behaviour.ecore#//Action"/>
+    <genClasses ecoreClass="behaviour.ecore#//Start"/>
+    <genClasses ecoreClass="behaviour.ecore#//Stop"/>
+    <genClasses ecoreClass="behaviour.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Choice/conditionIdentifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Choice/falseBranch"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="behaviour.ecore#//Move">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Move/preActions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Move/postActions"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//TakeOff">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//TakeOff/altitude"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Land"/>
+    <genClasses ecoreClass="behaviour.ecore#//GoTo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//GoTo/targetPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//GoTo/strategy"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Hover">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Hover/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//HeadTo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//HeadTo/direction"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Circle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Circle/targetPosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Circle/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Circle/radius"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Circle/altitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Circle/clockwise"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="behaviour.ecore#//CommunicationAction"/>
+    <genClasses image="false" ecoreClass="behaviour.ecore#//Notify">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//Notify/slot"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//BroadcastNotify"/>
+    <genClasses ecoreClass="behaviour.ecore#//UnicastNotify">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//UnicastNotify/receiver"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//MulticastNotify">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//MulticastNotify/receiver"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//CheckNotification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//CheckNotification/slot"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Slot"/>
+    <genClasses ecoreClass="behaviour.ecore#//DeviceAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//DeviceAction/actionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//DeviceAction/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Parameter/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Parameter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//MoveTransition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//MoveTransition/waitFor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//MoveTransition/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference behaviour.ecore#//MoveTransition/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//MoveTransition/fluid"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Coordinate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Coordinate/latitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Coordinate/longitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Coordinate/altitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Coordinate/heading"/>
+    </genClasses>
+    <genClasses ecoreClass="behaviour.ecore#//Feedback">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute behaviour.ecore#//Feedback/actionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference behaviour.ecore#//Feedback/parameters"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

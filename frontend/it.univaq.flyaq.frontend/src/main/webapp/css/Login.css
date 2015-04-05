@@ -1,0 +1,19 @@
+div#login-window-back {
+    
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    
+    background: silver;
+    z-index: 20;
+}
+
+div#login-window {
+    
+    width: 250px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 100px;
+}

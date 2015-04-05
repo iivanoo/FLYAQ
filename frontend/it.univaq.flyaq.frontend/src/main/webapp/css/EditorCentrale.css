@@ -1,0 +1,44 @@
+div#editor-centrale {
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: #222;
+}
+
+div#map {
+    
+    height: 100%;
+    position: relative;
+}
+
+table.popup {
+    
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 100%;
+}
+
+div.popupWin {
+    
+    width: 200px;
+}
+
+
+/** Behaviour finestre live data **/
+.stile_personale.ui-dialog{
+   font-size: 12px;
+
+}
+
+.stile_personale.ui-dialog img{
+   height: 275px;
+   width: 275px;
+
+}
+

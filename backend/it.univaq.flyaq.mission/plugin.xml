@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated mission -->
+      <package
+            uri="http://www.flyaq.it/mission"
+            class="it.univaq.flyaq.mission.MissionPackage"
+            genModel="model/mission.genmodel"/>
+   </extension>
+
+</plugin>

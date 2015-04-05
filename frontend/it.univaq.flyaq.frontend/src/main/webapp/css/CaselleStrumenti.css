@@ -1,0 +1,186 @@
+/**** Generale *****/
+
+div#caselle-strumenti {
+    
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    width: 250px;
+    bottom: 20px;
+    z-index: 10;
+}
+
+div#caselle-strumenti-coldx {
+    
+    margin-left: 20px;
+    height: 100%;
+    width: inherit;
+}
+
+div#caselle-strumenti-segnaposto {
+    
+    float: left;
+    position: absolute;
+    height: 100%;
+    display: none;
+}
+
+div#caselle-strumenti-segnaposto button {
+    
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+i#segnaposto-dx {
+    
+    display: none;
+}
+
+
+
+/*** Tasks ****/
+
+div#tasks {
+    
+    position: absolute;
+    height: 50%;
+    right: 0px;
+    left: 20px;
+}
+
+div#strumenti-elenco-task {
+    
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    display: block;
+}
+
+div#strumenti-elenco-task button {
+    
+    position: absolute;
+    bottom: 0px;
+}
+
+div#strumenti-elenco-task-1 {
+    
+    width: 100%;
+    overflow-y: auto;
+    position: absolute;
+    bottom: 40px;
+    top: 0px;
+}
+
+table#modelli-task tr:hover {
+    
+    cursor: pointer;
+    background: #cfcfcf;
+}
+
+
+
+
+/*** Contesto ***/
+
+div#contesto {
+    
+    position: absolute;
+    height: 50%;
+    right: 0px;
+    left: 20px;
+    display: none;
+}
+
+div#strumenti-elenco-contesto {
+    
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    display: block;
+}
+
+div#strumenti-elenco-contesto button {
+    
+    position: absolute;
+    bottom: 0px;
+}
+
+div#strumenti-elenco-contesto-1 {
+    
+    width: 100%;
+    overflow-y: auto;
+    position: absolute;
+    bottom: 40px;
+    top: 0px;
+}
+
+table#modelli-contesto tr:hover {
+    
+    cursor: pointer;
+    background: #cfcfcf;
+}
+
+
+
+
+/**** Droni ****/
+
+div#droni {
+    
+    position: absolute;
+    top: 50%;
+    margin-top: 25px;
+    left: 20px;
+    right: 0px;
+    bottom: 0px;    
+}
+
+div#droni-modelli select {
+    
+    width: 75%;
+}
+
+div#droni-modelli button {
+    
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+div#droni-flotta {
+    
+    overflow-y: auto;
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+    top: 120px;
+}
+
+
+
+/*** Nascondi caselle per basse risoluzioni ***/
+@media screen and (max-width: 850px) {
+    
+    
+    div#caselle-strumenti {
+        
+        right: -230px;
+    }
+    
+    div#caselle-strumenti-segnaposto {
+        
+        display: block;
+    }
+    
+    div#navbar-destra {
+        
+        float: none;
+    }
+}
+
+

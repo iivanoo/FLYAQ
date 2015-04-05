@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/it.univaq.flyaq.mission/src" modelPluginID="it.univaq.flyaq.mission"
+    modelName="Mission" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>mission.ecore</foreignModel>
+  <genPackages prefix="Mission" basePackage="it.univaq.flyaq" disposableProviderFactory="true"
+      ecorePackage="mission.ecore#/">
+    <genClasses image="false" ecoreClass="mission.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mission.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="mission.ecore#//Mission">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mission.ecore#//Mission/crs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//Mission/tasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//Mission/taskDependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//Mission/swarm"/>
+    </genClasses>
+    <genClasses ecoreClass="mission.ecore#//Swarm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//Swarm/drones"/>
+    </genClasses>
+    <genClasses ecoreClass="mission.ecore#//Drone">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//Drone/home"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mission.ecore#//Drone/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mission.ecore#//Task"/>
+    <genClasses image="false" ecoreClass="mission.ecore#//ControlTask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//ControlTask/referencePosition"/>
+    </genClasses>
+    <genClasses ecoreClass="mission.ecore#//Fork"/>
+    <genClasses ecoreClass="mission.ecore#//Join"/>
+    <genClasses ecoreClass="mission.ecore#//TaskDependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mission.ecore#//TaskDependency/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mission.ecore#//TaskDependency/to"/>
+    </genClasses>
+    <genClasses ecoreClass="mission.ecore#//Coordinate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mission.ecore#//Coordinate/latitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mission.ecore#//Coordinate/longitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mission.ecore#//Coordinate/altitude"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mission.ecore#//PolygonTask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//PolygonTask/shell"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//PolygonTask/initialPosition"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mission.ecore#//PointTask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//PointTask/point"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="mission.ecore#//LineTask">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//LineTask/points"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mission.ecore#//LineTask/initialPosition"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

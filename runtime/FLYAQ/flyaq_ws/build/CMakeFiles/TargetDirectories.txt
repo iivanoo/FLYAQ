@@ -1,0 +1,10 @@
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/flyaq/CMakeFiles/advertiser.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/CMakeFiles/clean_test_results.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/CMakeFiles/doxygen.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/flyaq/CMakeFiles/flyaq_gencpp.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/flyaq/CMakeFiles/flyaq_genlisp.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/flyaq/CMakeFiles/flyaq_genpy.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/gtest/CMakeFiles/gtest.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/gtest/CMakeFiles/gtest_main.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/CMakeFiles/run_tests.dir
+/home/viki/Desktop/FLYAQ/flyaq_ws/build/CMakeFiles/tests.dir

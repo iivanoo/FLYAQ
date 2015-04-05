@@ -1,0 +1,59 @@
+div#barra-menu {
+    
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+}
+img#logo-sito {
+    
+    height: 40px;
+}
+
+img.fixIcona {
+    
+    margin-top: 5px;
+}
+
+.textBarra {
+    
+    background: none;
+    border: none;
+    margin-top: 8px !important;
+    margin-left: 5px;
+    line-height: 23px;
+    border: 1px solid #CCCCCC;
+}
+
+.ipBarra {
+    
+    width: 130px !important;
+}
+
+div#barra-menu-LPD {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    display: none;
+}
+
+
+/*** Nascondi caselle per basse risoluzioni ***/
+@media screen and (max-width: 1120px) {
+    
+    div#barra-menu {
+        display: none;
+    }
+    
+    div#barra-menu-LPD {
+        display: block;
+    }
+    
+}
+
+#live-ros-ip {
+    border: 1px solid #CCCCCC;
+}

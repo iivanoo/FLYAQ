@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java">
+		<attributes>
+			<attribute name="com.springsource.server.ide.jdt.core.test.classpathentry" value="false"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/com.springsource.org.apache.taglibs.standard_1.1.2.v20110517.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/javax.servlet_3.0.0.v201112011016.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/org.eclipse.equinox.cm_1.0.400.v20120319-2029.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/org.springframework.beans_3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/org.springframework.context_3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/org.springframework.core_3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/org.springframework.web.servlet_3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/org.springframework.web_3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/com.springsource.org.apache.commons.logging-1.1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_21">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/ext/javax.servlet.jsp_2.2.0.v201112011158.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipselabs.emfjson-0.8.0-20140406.134418-2.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipse.emf.common_2.9.2.v20131212-0545.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipse.emf.ecore_2.9.2.v20131212-0545.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipse.emf.ecore.xmi_2.9.1.v20131212-0545.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipse.equinox.registry_3.5.100.v20110502.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipse.core.runtime_3.7.0.v20110110.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/plugins/org.eclipse.osgi_3.8.1.v20120830-144521.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/org.eclipse.equinox.common_3.6.0.v20110523.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/com.fasterxml.jackson.core.jackson-core_2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/virgo-tomcat-server-3.6.2.NEW/repository/usr/com.fasterxml.jackson.core.jackson-databind_2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mirco/Desktop/plugins/it.univaq.flyaq.behaviour_1.0.0.201406061902.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mirco/Desktop/plugins/it.univaq.flyaq.context_1.0.0.201406061902.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mirco/Desktop/plugins/it.univaq.flyaq.drone_1.0.0.201406061902.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mirco/Desktop/plugins/it.univaq.flyaq.mission_1.0.0.201406061902.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Mirco/Desktop/plugins/it.univaq.flyaq.synthesizer_1.0.0.201406121704.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

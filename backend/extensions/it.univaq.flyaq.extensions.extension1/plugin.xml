@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="it.univaq.flyaq.extension.mission">
+      <missionExtension
+            metamodel="model/extension1.ecore">
+            <Task
+                  color="8C2318"
+                  icon="icon/photoGrid.png"
+                  name="PhotoGridTask"
+                  synthesizer="it.univaq.flyaq.extensions.extension1.synthesizer.PhotoGridTaskSynthesizer"
+                  type="PolygonTask">
+         <PrimitiveTaskProperty
+               lowerBound="1"
+               name="gridResolution"
+               type="float"
+               upperBound="1">
+         </PrimitiveTaskProperty>
+         <PrimitiveTaskProperty
+               lowerBound="1"
+               name="altitude"
+               type="float"
+               upperBound="1">
+         </PrimitiveTaskProperty>
+      </Task>
+      <Task
+            color="5E8C6A"
+            icon="icon/goTo.png"
+            name="GoToTask"
+            synthesizer="it.univaq.flyaq.extensions.extension1.synthesizer.GoToTaskSynthesizer"
+            type="PointTask">
+         <EnumeratedTaskProperty
+               lowerBound="1"
+               name="type"
+               upperBound="1">
+            <PropertyEnumeration
+                  name="GoToType"
+                  values="NORMAL,SLOW,QUICK">
+            </PropertyEnumeration>
+         </EnumeratedTaskProperty>
+      </Task>
+      </missionExtension>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated extension1 -->
+      <package
+            uri="http://www.flyaq.it/extension1"
+            class="it.univaq.flyaq.extensions.extension1.Extension1Package"
+            genModel="model/extension1.genmodel"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DroneExtension
+Bundle-SymbolicName: it.univaq.flyaq.extension.drone;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: it.univaq.flyaq.extension.drone.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.osgi.framework;version="1.7.0"
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.7.0"
+Export-Package: it.univaq.flyaq.extension.drone
+Bundle-ClassPath: schema/,
+ .

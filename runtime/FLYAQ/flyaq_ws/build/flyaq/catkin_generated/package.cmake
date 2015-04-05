@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "flyaq")
+set(flyaq_MAINTAINER "Ivano Malavolta <ivano.malavolta@gssi.infn.it>")
+set(flyaq_DEPRECATED "")
+set(flyaq_VERSION "0.0.0")
+set(flyaq_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "message_generation")
+set(flyaq_RUN_DEPENDS "message_runtime" "roscpp" "rospy" "std_msgs")
+set(flyaq_BUILDTOOL_DEPENDS "catkin")

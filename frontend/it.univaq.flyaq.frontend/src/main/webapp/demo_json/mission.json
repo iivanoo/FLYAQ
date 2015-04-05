@@ -1,0 +1,104 @@
+{
+    "extensions": [
+        {
+            "name": "extension1",
+            "nsURI": "http://www.flyaq.it/extension1",
+            "nsPrefix": "extension1",
+            "eClassifiers": [
+                {
+                    "name": "PhotoGridTask",
+                    "eSuperTypes": [
+                        {
+                            "$ref": "file:/C:/virgo-tomcat-server-3.6.2.NEW/work/deployer/s/global/64/0/it.univaq.flyaq.mission/model/mission.ecore#//PolygonTask",
+                            "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EClass"
+                        }
+                    ],
+                    "eStructuralFeatures": [
+                        {
+                            "name": "gridResolution",
+                            "lowerBound": 1,
+                            "eType": {
+                                "$ref": "http://www.eclipse.org/emf/2002/Ecore#//EFloat",
+                                "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EDataType"
+                            }
+                        },
+                        {
+                            "name": "altitude",
+                            "lowerBound": 1,
+                            "eType": {
+                                "$ref": "http://www.eclipse.org/emf/2002/Ecore#//EFloat",
+                                "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EDataType"
+                            }
+                        }
+                    ],
+                    "icon": "http://localhost:8080/api/resources/photoGrid.png",
+                    "color": "8C2318"
+                },
+                {
+                    "name": "GoToTask",
+                    "eSuperTypes": [
+                        {
+                            "$ref": "file:/C:/virgo-tomcat-server-3.6.2.NEW/work/deployer/s/global/64/0/it.univaq.flyaq.mission/model/mission.ecore#//PointTask",
+                            "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EClass"
+                        }
+                    ],
+                    "eStructuralFeatures": [
+                        {
+                            "name": "type",
+                            "defaultValueLiteral": "NORMAL",
+                            "eType": {
+                                "$ref": "//GoToType",
+                                "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EEnum"
+                            }
+                        }
+                    ],
+                    "icon": "http://localhost:8080/api/resources/goTo.png",
+                    "color": "5E8C6A"
+                },
+                {
+                    "name": "GoToType",
+                    "eLiterals": [
+                        {
+                            "name": "NORMAL"
+                        },
+                        {
+                            "name": "SLOW",
+                            "value": 1
+                        },
+                        {
+                            "name": "QUICK",
+                            "value": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "extension2",
+            "nsURI": "http://www.flyaq.it/extension2",
+            "nsPrefix": "extension2",
+            "eClassifiers": [
+                {
+                    "name": "RoadTask",
+                    "eSuperTypes": [
+                        {
+                            "$ref": "file:/C:/virgo-tomcat-server-3.6.2.NEW/work/deployer/s/global/65/0/it.univaq.flyaq.mission/model/mission.ecore#//LineTask",
+                            "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EClass"
+                        }
+                    ],
+                    "eStructuralFeatures": [
+                        {
+                            "name": "inverted",
+                            "eType": {
+                                "$ref": "http://www.eclipse.org/emf/2002/Ecore#//EBoolean",
+                                "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EDataType"
+                            }
+                        }
+                    ],
+                    "icon": "http://localhost:8080/api/resources/roadtask.png",
+                    "color": "F2C45A"
+                }
+            ]
+        }
+    ]
+}

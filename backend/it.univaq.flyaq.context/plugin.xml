@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated context -->
+      <package
+            uri="http://www.flyaq.it/context"
+            class="it.univaq.flyaq.context.ContextPackage"
+            genModel="model/context.genmodel"/>
+   </extension>
+
+</plugin>

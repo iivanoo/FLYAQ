@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="extension1" nsURI="http://www.flyaq.it/extension1" nsPrefix="extension1">
+  <eClassifiers xsi:type="ecore:EClass" name="PhotoGridTask" eSuperTypes="../../it.univaq.flyaq.mission/model/mission.ecore#//PolygonTask">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gridResolution" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="altitude" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoToTask" eSuperTypes="../../it.univaq.flyaq.mission/model/mission.ecore#//PointTask">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GoToType"
+        defaultValueLiteral="NORMAL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GoToType">
+    <eLiterals name="NORMAL"/>
+    <eLiterals name="SLOW" value="1"/>
+    <eLiterals name="QUICK" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

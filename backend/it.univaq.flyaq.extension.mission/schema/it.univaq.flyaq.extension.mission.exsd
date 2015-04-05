@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="it.univaq.flyaq.extension.mission" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="it.univaq.flyaq.extension.mission" id="it.univaq.flyaq.extension.mission" name="MissionExtension"/>
+      </appinfo>
+      <documentation>
+         Use this extension point to specify your new types of Tasks to be used in your FLYAQ distribution.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="missionExtension"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="missionExtension">
+      <annotation>
+         <documentation>
+            Defines a new extension of the Mission metamodel
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="Task" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="metamodel" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="Task">
+      <annotation>
+         <documentation>
+            Defines a new type of mission task.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="0" maxOccurs="unbounded">
+            <choice>
+               <element ref="EnumeratedTaskProperty"/>
+               <element ref="PrimitiveTaskProperty"/>
+            </choice>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of the task
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" use="required">
+            <annotation>
+               <documentation>
+                  The type of the task.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="PolygonTask">
+                  </enumeration>
+                  <enumeration value="LineTask">
+                  </enumeration>
+                  <enumeration value="PointTask">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="color" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The RGB code of the color to be used in the web editor.
+Examples: &quot;DDDDDD&quot;, &quot;FF0000&quot;, etc.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="icon" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The file of the icon to be used in the palette of the web editor for the given task.
+The path must be relative to the base URL of the server.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="synthesizer" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":it.univaq.flyaq.extension.mission.ITaskSynthesizer"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="PrimitiveTaskProperty">
+      <annotation>
+         <documentation>
+            Defines a new primitive property which can be part of the new task being defined.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The name of the property.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lowerBound" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The minimum number of occurrences of the given attribute.
+
+LIMITATION: the FLYAQ engine currently supports only 0 and 1 as lower bound.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="upperBound" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The minimum number of occurrences of the given attribute.
+
+LIMITATION: the FLYAQ engine currently supports only 1 as upper bound.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type">
+            <annotation>
+               <documentation>
+                  The type of the primitive property.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="float">
+                  </enumeration>
+                  <enumeration value="integer">
+                  </enumeration>
+                  <enumeration value="string">
+                  </enumeration>
+                  <enumeration value="boolean">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="EnumeratedTaskProperty">
+      <annotation>
+         <documentation>
+            Defines a new enumerated property which can be part of the new task being defined.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="PropertyEnumeration"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The name of the property
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="lowerBound" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The minimum number of occurrences of the given attribute.
+
+LIMITATION: the FLYAQ engine currently supports only 0 and 1 as lower bound.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="upperBound" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The minimum number of occurrences of the given attribute.
+
+LIMITATION: the FLYAQ engine currently supports only 1 as upper bound.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="PropertyEnumeration">
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The name of the property enumeration.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="values" type="string">
+            <annotation>
+               <documentation>
+                  Comma-separated list of the values that the enumeration can have.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

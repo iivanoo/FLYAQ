@@ -1,0 +1,577 @@
+{
+    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Behaviour",
+    "name": "behaviour1",
+    "crs": "wgs84",
+    "drones": [
+        {
+            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone",
+            "name": "drone1",
+            "typeName": "drone",
+            "travelMode": "NORMAL",
+            "home": {
+                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Coordinate",
+                "latitude": 42.37018,
+                "longitude": 13.349674,
+                "heading": 22
+            },
+            "movements": [
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Start",
+                    "name": "start1",
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//BroadcastNotify",
+                            "name": "preBroadcastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.0",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Feedback",
+                            "name": "feedback1",
+                            "actionName": "action1",
+                            "parameters": [
+                                {
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Parameter",
+                                    "key": "var1",
+                                    "value": "100"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//TakeOff",
+                    "name": "takeOff1",
+                    "altitude": 122,
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//MulticastNotify",
+                            "name": "multicastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.1",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            },
+                            "receiver": [
+                                {
+                                    "$ref": "//@drones.1",
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                                }
+                            ]
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//CheckNotification",
+                            "name": "check1",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.1",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//GoTo",
+                    "name": "goTo1",
+                    "strategy": "DIRECT",
+                    "targetPosition": {
+                        "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Coordinate",
+                        "latitude": 42.36838,
+                        "longitude": 13.34794,
+                        "altitude": 99,
+                        "heading": 12
+                    }
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Circle",
+                    "name": "circle1",
+                    "duration": 45,
+                    "radius": 85,
+                    "altitude": 56,
+                    "clockwise": true,
+                    "targetPosition": {
+                        "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Coordinate",
+                        "latitude": 42.36838,
+                        "longitude": 13.35,
+                        "altitude": 89,
+                        "heading": 45
+                    },
+                     "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//DeviceAction",
+                            "name": "deviceAction3",
+                            "actionName": "action2"
+                        }
+                    ] 
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Hover",
+                    "name": "hover1",
+                    "duration": 12,
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//DeviceAction",
+                            "name": "deviceAction3",
+                            "actionName": "action2"
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//HeadTo",
+                    "name": "headTo1",
+                    "direction": 23,
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//BroadcastNotify",
+                            "name": "broadcastNotify3",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.2",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Land",
+                    "name": "land1",
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//CheckNotification",
+                            "name": "land1",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.2",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//MulticastNotify",
+                            "name": "multicastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.3",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            },
+                            "receiver": [
+                                {
+                                    "$ref": "//@drones.1",
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Stop",
+                    "name": "stop1",
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//UnicastNotify",
+                            "name": "unicastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.0/@slots.3",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            },
+                            "receiver": {
+                                "$ref": "//@drones.1",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                            }
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//DeviceAction",
+                            "name": "deviceAction1",
+                            "actionName": "action2",
+                            "parameters": [
+                                {
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Parameter",
+                                    "key": "var2",
+                                    "value": "33"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "moveTransitions": [
+                {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.0",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Start"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.1",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.1",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.2",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.2",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.3",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.3",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.4",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.4",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.5",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.5",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.6",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.6",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.7",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Land"
+      }
+    }
+            ],
+            "slots": [
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot1"
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot2"
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot3"
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot4"
+                }
+            ]
+        },
+        {
+            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone",
+            "name": "drone2",
+            "typeName": "drone",
+            "home": {
+                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Coordinate",
+                "latitude": 42.37118,
+                "longitude": 13.351974,
+                "heading": 22
+            },
+            "movements": [
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Start",
+                    "name": "start1",
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//BroadcastNotify",
+                            "name": "preBroadcastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.0",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Feedback",
+                            "name": "feedback1",
+                            "actionName": "action1",
+                            "parameters": [
+                                {
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Parameter",
+                                    "key": "var1",
+                                    "value": "100"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//TakeOff",
+                    "name": "takeOff1",
+                    "altitude": 122,
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//MulticastNotify",
+                            "name": "multicastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.1",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            },
+                            "receiver": [
+                                {
+                                    "$ref": "//@drones.0",
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                                }
+                            ]
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//CheckNotification",
+                            "name": "check1",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.1",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//GoTo",
+                    "name": "goTo1",
+                    "strategy": "HORIZONTAL_FIRST",
+                    "targetPosition": {
+                        "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Coordinate",
+                        "latitude": 42.37158,
+                        "longitude": 13.34794,
+                        "altitude": 99,
+                        "heading": 12
+                    }
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Circle",
+                    "name": "circle1",
+                    "duration": 45,
+                    "radius": 85,
+                    "altitude": 56,
+                    "clockwise": true,
+                    "targetPosition": {
+                        "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Coordinate",
+                        "latitude": 42.37258,
+                        "longitude":  13.35204,
+                        "altitude": 89,
+                        "heading": 45
+                    }
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Hover",
+                    "name": "hover1",
+                    "duration": 12,
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//DeviceAction",
+                            "name": "deviceAction3",
+                            "actionName": "action2"
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//HeadTo",
+                    "name": "headTo1",
+                    "direction": 23,
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//BroadcastNotify",
+                            "name": "broadcastNotify3",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.2",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Land",
+                    "name": "land1",
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//CheckNotification",
+                            "name": "land1",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.2",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            }
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//MulticastNotify",
+                            "name": "multicastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.3",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            },
+                            "receiver": [
+                                {
+                                    "$ref": "//@drones.0",
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                                },
+                                {
+                                    "$ref": "//@drones.1",
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Stop",
+                    "name": "stop1",
+                    "preActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//UnicastNotify",
+                            "name": "unicastNotify1",
+                            "slot": {
+                                "$ref": "//@drones.1/@slots.3",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot"
+                            },
+                            "receiver": {
+                                "$ref": "//@drones.0",
+                                "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Drone"
+                            }
+                        }
+                    ],
+                    "postActions": [
+                        {
+                            "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//DeviceAction",
+                            "name": "deviceAction1",
+                            "actionName": "action2",
+                            "parameters": [
+                                {
+                                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Parameter",
+                                    "key": "var2",
+                                    "value": "33"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "moveTransitions": [
+                   {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.0",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Start"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.1",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.1",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//TakeOff"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.2",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.2",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Hover"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.3",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.3",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.4",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.4",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.5",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.5",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Circle"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.6",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      }
+    }, {
+      "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//MoveTransition",
+      "from" : {
+        "$ref" : "//@drones.0/@movements.6",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//GoTo"
+      },
+      "to" : {
+        "$ref" : "//@drones.0/@movements.7",
+        "eClass" : "file:/Users/ivano/Documents/Development/Eclipse/mac/eclipseFLYAQ/workspace/it.univaq.flyaq.behaviour/model/behaviour.ecore#//Land"
+      }
+    }
+            ],
+            "slots": [
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot1"
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot2"
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot3"
+                },
+                {
+                    "eClass": "file:/C:/ECLIPSE/flyAQ/workspace/flyaqjson/src/flyaqjson/behaviour.ecore#//Slot",
+                    "name": "slot4"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+[
+{
+"name":"No Fly Areas",
+"icon":"icone/noVolo.png",
+"eAnnotations":[
+	{"details":{"color":"#00ff00","icon":"icone/noVolo.png"}}],
+"eStructuralFeatures":[
+	{"name":"safetyDistance","value":0, "eType":"EFloat"}]
+},
+
+{
+"name":"Obstacles",
+"icon":"icone/ostacoli.png",
+"eAnnotations":[
+	{"details":{"color":"#0000ff","icon":"icone/ostacoli.png"}}],
+"eStructuralFeatures":[
+	{"name":"safetyDistance","value":0, "eType":"EFloat"},
+	{"name":"minHeight","value":0, "eType":"EFloat"},
+	{"name":"maxHeight","value":0,"lowerBound":1, "eType":"EFloat"}]
+},
+
+{
+"name":"Emergency Areas",
+"icon":"icone/emergenza.png",
+"eAnnotations":[
+	{"details":{"color":"#0d0d0d","icon":"icone/emergenza.png"}}],
+"eStructuralFeatures":[
+	{"name":"safetyDistance","value":0, "eType":"EFloat"}]
+}
+]

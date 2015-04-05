@@ -1,0 +1,28 @@
+div#menu-vista {
+    
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    z-index: 10;
+}
+
+span.menu-vista-etichetta {
+    
+    margin-left: 20px;
+    display: none;
+}
+
+button.modifica-vista {
+    
+    min-width: 80px;
+}
+
+button.modifica-vista:hover span {
+    
+    display: inline;
+}
+
+div#menu-vista button{
+    
+    height: 43px;
+}

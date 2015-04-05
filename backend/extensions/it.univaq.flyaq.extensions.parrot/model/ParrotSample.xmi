@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<drone:Drone
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:drone="http://www.flyaq.it/drone"
+    xsi:schemaLocation="http://www.flyaq.it/drone ../../it.univaq.flyaq.drone/model/drone.ecore"
+    name="ParrotSample"
+    minVoltage="110.0"
+    maxVoltage="220.0"
+    maxPowerConsumption="500.0"
+    gps="true"
+    accelerometer="true"
+    communicationRange="600.0"
+    dataRate="8"
+    radioFrequency="55">
+  <size width="64.0"
+      length="96.0"
+      height="85.0"
+      weight="12.0"
+      propellerSize="8.0"/>
+  <flightPerf
+      launchType="HTOL"
+      minSpeed="2"
+      maxSpeed="14"
+      minAcceleration="8"
+      maxAcceleration="2"
+      maxAltitude="100"
+      maxTurnRate="7.0"
+      minTurnRate="9.0"
+      maxClimbRate="12.0"
+      maxDescendRate="41.0"
+      positionHold="66.0"
+      maxPayload="8"
+      maxFlightTime="45"
+      maxFlightTimeWithMaxPayload="8"
+      minOperatingTemperature="12.0"
+      maxOperatingTemperature="36.0"/>
+  <batteries
+      name="battery1"
+      cellType="ion"
+      capacity="45"
+      voltage="200.0"
+      rechargeTime="2"/>
+  <batteries
+      name="battery2"
+      cellType="ion"
+      capacity="22"
+      voltage="100.0"
+      rechargeTime="1"/>
+  <processors
+      name="core1"
+      architecture="x86"
+      frequency="223"/>
+  <processors
+      name="core2"
+      architecture="x86"
+      frequency="223"/>
+  <memory name="ram"
+      type="STORAGE"
+      subType=""
+      size="512"/>
+  <memory name="sd"
+      type="STORAGE"
+      subType=""
+      size="1024"/>
+  <dataEquipment
+      name="Camera">
+    <supportedActions
+        name="TakePicture"/>
+  </dataEquipment>
+</drone:Drone>
